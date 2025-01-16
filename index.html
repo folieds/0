@@ -40,19 +40,21 @@
     </footer>
 
     <script>
-        // Fetch and display a new anime character image every 5 seconds
         const animeImg = document.getElementById('anime-img');
+
+        // Fetch anime character image from Waifu.pics
         function fetchAnimeCharacter() {
             fetch('https://api.waifu.pics/sfw/boy')
                 .then(response => response.json())
                 .then(data => {
-                    animeImg.src = data.url;
+                    animeImg.src = data.url; // Assign fetched URL to image
                 })
                 .catch(error => console.error('Error fetching anime character:', error));
         }
 
+        // Load a new anime character every 10 seconds
         fetchAnimeCharacter();
-        setInterval(fetchAnimeCharacter, 5000);
+        setInterval(fetchAnimeCharacter, 10000);
 
         // Button animations
         document.querySelectorAll('.links a').forEach(link => {
