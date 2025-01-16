@@ -8,186 +8,121 @@
 /* Body Styling */
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #1a1a2e;  /* Dark theme */
-    color: #eaeaea;  /* Light text color */
+    background-color: #1a1a2e;
+    color: #eaeaea;
     padding: 20px;
-    position: relative;
-    height: 100vh;
-    overflow-y: scroll; /* Enable scroll */
+    min-height: 100vh;
+    overflow-y: auto;
 }
 
-/* Full-screen Anime Background - Only in the Green Area */
+/* Anime Character Background */
 .anime-character-background {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background: url('https://envs.sh/Nre.jpg') no-repeat center center;
     background-size: cover;
-    z-index: -1; /* Put it behind the content */
-    mask-image: radial-gradient(circle at top left, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0) 100%);
-    -webkit-mask-image: radial-gradient(circle at top left, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0) 100%);
+    z-index: -1;
+    opacity: 0.4; /* Dim the background */
 }
 
 /* Header Styling */
 header {
-    color: white;
     text-align: center;
     padding: 20px;
-    position: relative;
-    z-index: 1;
 }
 
-/* Profile Image */
 .profile-img {
     width: 120px;
     height: 120px;
     border-radius: 50%;
     border: 5px solid #fff;
     margin-bottom: 20px;
-    opacity: 0;
-    animation: fadeInUp 1s ease forwards;
 }
 
-/* Title Styling */
 h1 {
     font-size: 3rem;
     margin: 0;
-    opacity: 0;
-    font-family: 'Poppins', sans-serif;
-    animation: fadeInUp 1s 0.5s ease forwards;
 }
 
 /* Bio Section */
 .bio {
-    margin-top: 40px;
     text-align: center;
-    opacity: 0;
-    animation: fadeInUp 1s 1s ease forwards;
+    margin: 40px auto;
 }
 
 .bio h2 {
     font-size: 2rem;
     margin-bottom: 10px;
-    color: #ff8c00; /* Highlighted text */
+}
+
+.bio p {
+    font-size: 1.2rem;
+    line-height: 1.5;
 }
 
 /* Links Section */
+.links {
+    text-align: center;
+    margin: 50px auto;
+}
+
+.links h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
 .links ul {
     list-style-type: none;
     padding: 0;
-    text-align: center;
 }
 
 .links li {
     margin: 15px 0;
-    animation: slideIn 0.8s ease forwards;
 }
 
-/* Button Styling */
-a {
+.links a {
     text-decoration: none;
-    color: #fff; /* Text color */
-    font-size: 18px;
-    padding: 10px 20px;
-    border-radius: 30px; /* Rounded shape */
-    display: inline-block;
-    background: linear-gradient(45deg, #ff8c00, #ff00ff); /* Gradient background */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Button shadow */
-    position: relative;
-    overflow: hidden; /* To keep shimmer effect inside the button */
+    color: #29c7ac; /* Cool teal color */
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     transition: all 0.3s ease;
-    animation: pulse 3s infinite; /* Continuous pulsating animation */
+    padding: 10px 20px;
+    border: 2px solid #29c7ac;
+    border-radius: 25px;
+    background-color: #1a1a2e;
 }
 
-/* Hover Effect */
-a:hover {
-    transform: translateY(-3px) scale(1.05); /* Lift and scale effect */
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); /* Stronger shadow */
-    background: linear-gradient(45deg, #ff00ff, #ff8c00); /* Reverse gradient on hover */
+.links a:hover {
+    color: #1a1a2e;
+    background-color: #29c7ac;
+    transform: scale(1.1);
 }
 
-/* Pulsating Effect */
-@keyframes pulse {
-    0%, 100% {
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    }
-    50% {
-        box-shadow: 0 6px 20px rgba(255, 140, 0, 0.5);
-    }
+/* Anime Character */
+#anime-character {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 10;
 }
 
-/* Gradient Shimmer Effect */
-a::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 200%;
-    height: 100%;
-    background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-    animation: shimmer 2s infinite;
-    z-index: 1;
-}
-
-@keyframes shimmer {
-    from {
-        left: -100%;
-    }
-    to {
-        left: 100%;
-    }
-}
-
-/* Ensuring Text Stays Above the Shimmer */
-a span {
-    position: relative;
-    z-index: 2;
-}
-
-/* Icon Styling */
-a i {
-    margin-right: 10px;
-    font-size: 20px;
-    color: #fff; /* Icon color */
-    transition: transform 0.3s ease;
-}
-
-a:hover i {
-    transform: rotate(360deg); /* Rotate icon on hover */
+#anime-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 3px solid #29c7ac;
 }
 
 /* Footer Styling */
 footer {
     text-align: center;
-    padding: 10px;
+    padding: 20px;
+    margin-top: 20px;
     background-color: #16213e;
     color: white;
-    opacity: 0;
-    transform: translateY(30px);
-    animation: fadeInUp 1s 1.5s forwards;
-}
-
-/* Keyframes for Animations */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes slideIn {
-    from {
-        opacity: 0;
-        transform: translateX(-30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
 }
