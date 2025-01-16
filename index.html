@@ -44,7 +44,7 @@
 
         // Fetch anime character image from Waifu.pics
         function fetchAnimeCharacter() {
-            fetch('https://api.waifu.pics/sfw/boy')
+            fetch('https://api.waifu.pics/sfw/waifu')
                 .then(response => response.json())
                 .then(data => {
                     animeImg.src = data.url; // Assign fetched URL to image
